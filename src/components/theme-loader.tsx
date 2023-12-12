@@ -17,6 +17,7 @@ export async function ThemeLoader() {
             --primary-foreground: ${primaryForeground.h} ${primaryForeground.s}% ${primaryForeground.l}%;
             --foreground: ${text.h} ${text.s}% ${text.l}%;
             --shadow: ${data.length_x}px ${data.length_y}px ${data.blur_radius}px ${data.spread_radius}px ${data.shadow};
+            --radius: ${data.border_radius}rem;
         }
       `}</style>
     );

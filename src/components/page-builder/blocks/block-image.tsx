@@ -4,7 +4,7 @@ import { ASSETS_URL } from "~/lib/constants";
 export function BlockImage(props: any) {
     return (
         <div
-            className="relative aspect-video"
+            className="relative aspect-video rounded-md overflow-hidden"
             style={{ boxShadow: "var(--shadow)" }}
         >
             <Image
