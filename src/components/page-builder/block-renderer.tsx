@@ -8,7 +8,7 @@ export default function BlocksRenderer(props: { blocks: PageBlock[] }) {
     });
 
     return (
-        <div className="flex flex-col gap-8">
+        <div className="flex flex-col gap-20">
             {blocks.map((block) => {
                 if (typeof block === "string") return null;
                 if (!block.collection) return null;

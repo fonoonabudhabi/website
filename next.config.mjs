@@ -10,6 +10,11 @@ const nextConfig = {
             },
             {
                 protocol: "https",
+                hostname: "dev-cms.fonoon.ae",
+                pathname: "/**",
+            },
+            {
+                protocol: "https",
                 hostname: "cms.fonoon.ae",
                 pathname: "/**",
             },

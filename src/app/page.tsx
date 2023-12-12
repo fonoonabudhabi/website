@@ -119,7 +119,7 @@ export default async function Home() {
         <div className="container">
             <ThemeLoader />
 
-            <div className="flex flex-col gap-14 py-8">
+            <div className="flex flex-col gap-24 py-8">
                 <PageBuilder {...page} />
                 <ContactUs />
                 <QR />

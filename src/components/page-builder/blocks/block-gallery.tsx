@@ -113,23 +113,23 @@ function GallerySwiper(props) {
                     </DialogClose>
                 </div>
 
-                <div className="fixed z-10 top-full left-1/2 -translate-x-1/2 w-full max-w-7xl pt-4">
-                    <div className="flex justify-between">
-                        <Button
-                            size="icon"
-                            disabled={active === 0}
-                            onClick={() => handleBack()}
-                        >
-                            <ArrowLeft />
-                        </Button>
-                        <Button
-                            size="icon"
-                            disabled={active === props.items.length - 1}
-                            onClick={() => handleNext()}
-                        >
-                            <ArrowRight />
-                        </Button>
-                    </div>
+                <div className="absolute top-full md:top-0 right-full bottom-0 z-50 flex items-center justify-between -mr-10 md:-mr-5">
+                    <Button
+                        size="icon"
+                        disabled={active === 0}
+                        onClick={() => handleBack()}
+                    >
+                        <ArrowLeft />
+                    </Button>
+                </div>
+                <div className="absolute top-full md:top-0 left-full bottom-0 z-50 flex items-center justify-between -ml-10 md:-ml-5">
+                    <Button
+                        size="icon"
+                        disabled={active === props.items.length - 1}
+                        onClick={() => handleNext()}
+                    >
+                        <ArrowRight />
+                    </Button>
                 </div>
             </DialogContent>
         </Dialog>

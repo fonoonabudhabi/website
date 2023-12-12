@@ -3,7 +3,10 @@ import { ASSETS_URL } from "~/lib/constants";
 
 export function BlockImage(props: any) {
     return (
-        <div className="relative aspect-video">
+        <div
+            className="relative aspect-video"
+            style={{ boxShadow: "var(--shadow)" }}
+        >
             <Image
                 src={`${ASSETS_URL}/${props.image}`}
                 alt=""
