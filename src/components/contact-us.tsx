@@ -63,59 +63,49 @@ export const ContactUs = () => {
             <div>
                 <form>
                     <div className="mb-4 space-y-2">
-                        <Label className="text-primary-foreground">
-                            Name *
-                        </Label>
+                        <Label className="">Name *</Label>
                         <div className="grid grid-cols-2 gap-2">
                             <Input
                                 type="text"
                                 placeholder="First Name"
-                                className="w-full border p-2"
+                                className="w-full border p-2 text-black"
                             />
                             <Input
                                 type="text"
                                 placeholder="Last Name"
-                                className="w-full border p-2"
+                                className="w-full border p-2 text-black"
                             />
                         </div>
                     </div>
                     <div className="mb-4 space-y-2">
-                        <Label className="text-primary-foreground">
-                            Company
-                        </Label>
+                        <Label className="">Company</Label>
                         <Input
                             type="text"
                             placeholder="Company"
-                            className="w-full border p-2"
+                            className="w-full border p-2 text-black"
                         />
                     </div>
                     <div className="mb-4 space-y-2">
-                        <Label className="text-primary-foreground">
-                            Country
-                        </Label>
+                        <Label className="">Country</Label>
                         <Input
                             type="text"
                             placeholder="Country"
-                            className="w-full border p-2"
+                            className="w-full border p-2 text-black"
                         />
                     </div>
                     <div className="mb-4 space-y-2">
-                        <Label className="text-primary-foreground">
-                            Email *
-                        </Label>
+                        <Label className="">Email *</Label>
                         <Input
                             type="email"
                             placeholder="Email"
-                            className="w-full border p-2"
+                            className="w-full border p-2 text-black"
                         />
                     </div>
                     <div className="mb-4 space-y-2">
-                        <Label className="text-primary-foreground">
-                            Message
-                        </Label>
+                        <Label className="">Message</Label>
                         <Textarea
                             placeholder="Enter your message..."
-                            className="w-full border p-2"
+                            className="w-full border p-2 text-black"
                         />
                     </div>
                     <Button type="submit" className="w-full">
