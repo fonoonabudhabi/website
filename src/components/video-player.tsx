@@ -2,12 +2,9 @@
 
 import { Stream, StreamPlayerApi } from "@cloudflare/stream-react";
 import { useEffect, useRef } from "react";
+import { ASSETS_URL } from "~/lib/constants";
 
-export default function VideoPlayer(props: {
-    video_id: string;
-    playing?: boolean;
-    muted?: boolean;
-}) {
+export default function VideoPlayer(props: any) {
     const ref = useRef<StreamPlayerApi>();
 
     useEffect(() => {
@@ -27,6 +24,7 @@ export default function VideoPlayer(props: {
                 loop={props.loop}
                 muted={props.muted}
                 autoplay={props.autoplay ?? true}
+                poster={`${ASSETS_URL}/${props.poster}`}
                 className="border-none absolute top-0 left-0 w-full h-full"
             />
         </div>
