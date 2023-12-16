@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
-import VimeoPlayer from "~/components/vimeo-player";
+import VideoPlayer from "~/components/video-player";
 import { ASSETS_URL } from "~/lib/constants";
 import { useRef } from "react";
 import { Button } from "~/components/ui/button";
@@ -56,7 +56,7 @@ export function BlockSlider(props: any) {
                         return (
                             <SwiperSlide key={s.id} className="w-full h-full">
                                 {slide.vimeo_key ? (
-                                    <VimeoPlayer vimeo_key={slide.vimeo_key} />
+                                    <VideoPlayer vimeo_key={slide.vimeo_key} />
                                 ) : (
                                     <Image
                                         src={`${ASSETS_URL}/${slide.image}`}

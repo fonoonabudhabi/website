@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { Button } from "~/components/ui/button";
 import { Dialog, DialogClose, DialogContent } from "~/components/ui/dialog";
-import VimeoPlayer from "~/components/vimeo-player";
+import VideoPlayer from "~/components/video-player";
 import { cn } from "~/lib/cn";
 import { ASSETS_URL } from "~/lib/constants";
 import { BlockGallery, BlockGalleryFile } from "~/types/blocks";
@@ -43,14 +43,14 @@ export function BlockGallery(props: BlockGallery) {
 function GalleryItem(props: BlockGalleryFile) {
     return (
         <div
-            className="rounded-md overflow-hidden shadow-md"
+            className="relative rounded-md overflow-hidden shadow-md w-20 h-20"
             onClick={props.setOpen}
         >
             <Image
                 src={`${ASSETS_URL}/${props.image}`}
                 alt=""
-                width={100}
-                height={100}
+                fill
+                className="object-cover"
             />
         </div>
     );
@@ -69,7 +69,7 @@ function GallerySwiper(props) {
     return (
         <Dialog open={props.open} onOpenChange={props.onOpenChange}>
             <DialogContent className="sm:max-w-7xl p-0 border-none">
-                <div className="relative aspect-video">
+                <div className="relative aspect-video overflow-hidden rounded-md">
                     {props.items.map((it) => {
                         const item = it.gallery_items_id;
                         return (
@@ -80,10 +80,10 @@ function GallerySwiper(props) {
                                     activeItem.id === item.id && "block"
                                 )}
                             >
-                                {item.vimeo_key ? (
+                                {item.video_id ? (
                                     activeItem.id === item.id ? (
-                                        <VimeoPlayer
-                                            vimeo_key={item.vimeo_key}
+                                        <VideoPlayer
+                                            video_id={item.video_id}
                                             playing={activeItem.id === item.id}
                                         />
                                     ) : null
