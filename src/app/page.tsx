@@ -25,7 +25,7 @@ export default async function Home() {
                             {
                                 item: {
                                     block_gallery: [
-                                        "id",
+                                        "*",
                                         {
                                             gallery_items: [
                                                 "*",
@@ -66,7 +66,7 @@ export default async function Home() {
                                                                     item: {
                                                                         block_gallery:
                                                                             [
-                                                                                "id",
+                                                                                "*",
                                                                                 {
                                                                                     gallery_items:
                                                                                         [

@@ -2,13 +2,14 @@
 
 import { ArrowLeft, ArrowRight, X } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import { Button } from "~/components/ui/button";
 import { Dialog, DialogClose, DialogContent } from "~/components/ui/dialog";
 import VideoPlayer from "~/components/video-player";
 import { cn } from "~/lib/cn";
 import { ASSETS_URL } from "~/lib/constants";
 import { BlockGallery, BlockGalleryFile } from "~/types/blocks";
+import { timeline } from "motion";
 
 export function BlockGallery(props: BlockGallery) {
     const [open, setOpen] = useState(false);
@@ -20,11 +21,13 @@ export function BlockGallery(props: BlockGallery) {
                 {props.gallery_items?.map((item, i) => (
                     <GalleryItem
                         key={item.id}
+                        index={i}
                         {...item.gallery_items_id}
                         setOpen={() => {
                             setOpen(true);
                             setActive(i);
                         }}
+                        {...props}
                     />
                 ))}
             </div>
@@ -40,11 +43,33 @@ export function BlockGallery(props: BlockGallery) {
     );
 }
 
-function GalleryItem(props: BlockGalleryFile) {
+// Function to get a random number in a specific range
+function getRandomNumber(min: number, max: number): number {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function GalleryItem(props: any) {
+    useLayoutEffect(() => {
+        const rn = getRandomNumber(1, 3);
+
+        timeline(
+            [
+                [`#gallery-item-${props.index}`, { scale: 1.05 }],
+                [`#gallery-item-${props.index}`, { scale: 1 }, { delay: 0.1 }],
+            ],
+            { repeat: 1000000, duration: rn }
+        );
+    }, []);
+
     return (
         <div
-            className="relative rounded-md overflow-hidden shadow-md w-20 h-20"
+            id={`gallery-item-${props.index}`}
+            className="relative overflow-hidden w-20 h-20 border"
             onClick={props.setOpen}
+            style={{
+                borderRadius: `${props.border_radius}rem`,
+                boxShadow: `${props.length_x}px ${props.length_y}px ${props.blur_radius}px ${props.spread_radius}px ${props.shadow}`,
+            }}
         >
             <Image
                 src={`${ASSETS_URL}/${props.image}`}
