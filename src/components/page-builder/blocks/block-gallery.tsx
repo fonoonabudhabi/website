@@ -64,11 +64,12 @@ function GalleryItem(props: any) {
     return (
         <div
             id={`gallery-item-${props.index}`}
-            className="relative overflow-hidden w-20 h-20 border"
+            className="relative overflow-hidden w-20 h-20"
             onClick={props.setOpen}
             style={{
                 borderRadius: `${props.border_radius}rem`,
                 boxShadow: `${props.length_x}px ${props.length_y}px ${props.blur_radius}px ${props.spread_radius}px ${props.shadow}`,
+                border: `${props.stroke_width}px solid #fff`,
             }}
         >
             <Image
