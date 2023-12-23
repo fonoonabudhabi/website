@@ -18,7 +18,7 @@ export async function Background() {
                 alt=""
                 sizes="100vw"
                 fill
-                className="object-cover"
+                className="object-cover z-10"
             />
         </div>
     );
