@@ -5,7 +5,7 @@ import { directusServer, readSingleton } from "~/lib/directus";
 
 export async function Background() {
     const data = await directusServer.request(
-        readSingleton("theme", { fields: ["background"] })
+        readSingleton("theme", { fields: ["*"] })
     );
 
     // const primaryColor = colord(data.primaryColor).toHsl();
@@ -13,7 +13,10 @@ export async function Background() {
     // const textColor = colord(data.textColor).toHsl();
 
     return (
-        <div className="fixed top-0 left-0 right-0 bottom-0 -z-10">
+        <div
+            className="fixed top-0 left-0 right-0 bottom-0 -z-10"
+            style={{ backgroundColor: data.background_color }}
+        >
             <Image
                 src={`${ASSETS_URL}/${data.background}`}
                 alt=""

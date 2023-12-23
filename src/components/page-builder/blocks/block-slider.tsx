@@ -55,8 +55,8 @@ export function BlockSlider(props: any) {
                         const slide = s.slider_items_id;
                         return (
                             <SwiperSlide key={s.id} className="w-full h-full">
-                                {slide.vimeo_key ? (
-                                    <VideoPlayer vimeo_key={slide.vimeo_key} />
+                                {slide.video_id ? (
+                                    <VideoPlayer video_id={slide.video_id} />
                                 ) : (
                                     <Image
                                         src={`${ASSETS_URL}/${slide.image}`}
@@ -66,7 +66,6 @@ export function BlockSlider(props: any) {
                                         className="object-cover"
                                     />
                                 )}
-                                {/* </div> */}
                             </SwiperSlide>
                         );
                     })}
